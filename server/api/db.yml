@@ -1,0 +1,5 @@
+host: localhost
+database: cards_against_humanity
+user: max
+password: mypassword
+port: 5678

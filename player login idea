@@ -1,0 +1,4 @@
+prompt modal on page load componentdidmount for player username, add all usernames to the
+database then GET the user info to have an accurate list of all active users?
+
+make a watch route that lets someone display the game on a tv
