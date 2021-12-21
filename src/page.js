@@ -18,9 +18,9 @@ class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "tet",
+            username: "",
             showModal: true,
-            blackCard: "none",
+            blackCard: "",
             cards: []
         }
 
@@ -56,9 +56,9 @@ class Page extends React.Component {
 
     }
     addDrawCardsToState(newCard){
-        let tempCards = this.state.cards
-        tempCards.push(newCard)
-        this.setState({cards: tempCards})
+        let tempCards = this.state.cards;
+        tempCards.push(newCard);
+        this.setState({cards: tempCards});
     }
 
     render(){
