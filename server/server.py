@@ -10,6 +10,11 @@ app = Flask(__name__) #create Flask instance
 
 api = Api(app) #api router
 
+api.add_resource(BlackCard, '/whitecard')
+api.add_resource(WhiteCard, '/blackcard')
+api.add_resource(Login, '/login')
+api.add_resource(Players, '/players')
+
 if __name__ == '__main__':
     print("Loading db")
     exec_sql_file('deploy.sql')
