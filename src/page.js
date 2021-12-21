@@ -29,7 +29,7 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        this.handleCardDraw()
+        this.handleCardDraw();
     }
 
     handleUserNameSubmit(event){
