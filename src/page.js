@@ -77,11 +77,9 @@ class Page extends React.Component {
 
                 {this.state.cards}
 
-
             </div>
         )
     }
-
 }
 
 export default Page
