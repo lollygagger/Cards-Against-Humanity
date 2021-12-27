@@ -2,7 +2,7 @@ from flask_restful import Resource
 from flask_restful import request
 from flask_restful import reqparse
 from flask import jsonify
-from utils import *
+from api.utils import *
 import random
 
 class BlackCard(Resource):
