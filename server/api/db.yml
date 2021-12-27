@@ -1,5 +1,5 @@
 host: localhost
 database: cards_against_humanity
-user: max
+user: Max
 password: mypassword
-port: 5678
+port: 5432
