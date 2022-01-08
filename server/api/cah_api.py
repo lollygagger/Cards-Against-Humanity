@@ -8,7 +8,7 @@ import random
 class BlackCard(Resource):
     def get(self):
         result = exec_get_all("SELECT content FROM CARDS WHERE is_black_card = true")
-        randIndex = random.randint(0, len(result))
+        randIndex = random.randint(0, len(result) - 1)
         return result[randIndex]
 
     def post(self):
@@ -16,7 +16,7 @@ class BlackCard(Resource):
         parser.add_argument('content')
         args = parser.parse_args()
 
-        exec_commit("INSERT INTO cards(content, is_black_car) VALUES (%s, true)", [args[0]])
+        exec_commit("INSERT INTO cards(content, is_black_car) VALUES (%s, true)", [args['content']])
 
 
 class WhiteCard(Resource):
@@ -31,7 +31,7 @@ class WhiteCard(Resource):
         parser.add_argument('content')
         args = parser.parse_args()
 
-        exec_commit("INSERT INTO cards(content, is_black_car) VALUES (%s, false)", [args[0]])
+        exec_commit("INSERT INTO cards(content, is_black_car) VALUES (%s, false)", [args['content']])
 
 
 class Players(Resource):
@@ -44,6 +44,5 @@ class Login(Resource):
         parser.add_argument('username')
         args = parser.parse_args()
 
-        print(args['username'])
         exec_commit("INSERT INTO players(username) VALUES (%s)", [args['username']])
 

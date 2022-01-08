@@ -14,6 +14,8 @@ import {
     ModalBody
 } from 'reactstrap';
 
+const STARTING_CARD_AMOUNT = 7;
+
 class Page extends React.Component {
     constructor(props) {
         super(props);
@@ -32,7 +34,10 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        this.handleCardDraw();
+        for(let i = 0; i < STARTING_CARD_AMOUNT; i++){
+            this.handleCardDraw();
+        }
+
     }
 
     handleUserNameSubmit(event){
@@ -50,10 +55,10 @@ class Page extends React.Component {
 
     handleCardDraw(){
         fetch('/whitecard', {method: 'GET'})
-            .then((response) => {response.json()})
+            .then((response) => {return response.json()})
             .then(jsonOutput => //jsonOutput now has result of the data extraction
                   {
-                      this.addDrawCardsToState(jsonOutput)
+                      this.addDrawCardsToState(jsonOutput[0])
                     }
               )
 
