@@ -24,8 +24,11 @@ class Page extends React.Component {
             cards: []
         }
 
-        this.handleUserNameChange = this.handleUserNameChange.bind(this)
-        this.handleUserNameSubmit = this.handleUserNameSubmit.bind(this)
+        this.handleUserNameChange = this.handleUserNameChange.bind(this);
+        this.handleUserNameSubmit = this.handleUserNameSubmit.bind(this);
+        this.handleCardDraw = this.handleCardDraw.bind(this);
+        this.addDrawCardsToState = this.addDrawCardsToState.bind(this);
+
     }
 
     componentDidMount() {
@@ -55,6 +58,7 @@ class Page extends React.Component {
               )
 
     }
+
     addDrawCardsToState(newCard){
         let tempCards = this.state.cards;
         tempCards.push(newCard);

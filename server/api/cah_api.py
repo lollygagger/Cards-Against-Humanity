@@ -22,7 +22,7 @@ class BlackCard(Resource):
 class WhiteCard(Resource):
     def get(self):
         result = exec_get_all("SELECT content FROM cards WHERE is_black_card = false")
-        randIndex = random.randint(0, len(result))
+        randIndex = random.randint(0, len(result) - 1)
         return result[randIndex]
 
 
@@ -43,5 +43,7 @@ class Login(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('username')
         args = parser.parse_args()
-        exec_commit("INSERT INTO players(username) VALUES (%s)", [args[0]])
+
+        print(args['username'])
+        exec_commit("INSERT INTO players(username) VALUES (%s)", [args['username']])
 

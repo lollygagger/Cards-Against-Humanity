@@ -10,8 +10,8 @@ app = Flask(__name__) #create Flask instance
 
 api = Api(app) #api router
 
-api.add_resource(BlackCard, '/whitecard')
-api.add_resource(WhiteCard, '/blackcard')
+api.add_resource(WhiteCard, '/whitecard')
+api.add_resource(BlackCard, '/blackcard')
 api.add_resource(Login, '/login')
 api.add_resource(Players, '/players')
 
