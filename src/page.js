@@ -1,4 +1,5 @@
 import React from "react";
+import CardDisplay from './CardDisplay';
 import {
     Col,
     Row,
@@ -26,7 +27,6 @@ class Page extends React.Component {
             cards: []
         }
 
-        this.handleUserNameChange = this.handleUserNameChange.bind(this);
         this.handleUserNameSubmit = this.handleUserNameSubmit.bind(this);
         this.handleCardDraw = this.handleCardDraw.bind(this);
         this.addDrawCardsToState = this.addDrawCardsToState.bind(this);
@@ -40,7 +40,7 @@ class Page extends React.Component {
 
     }
 
-    handleUserNameSubmit(event){
+    handleUserNameSubmit(){
         fetch('/login', {method: 'POST', body: JSON.stringify({
                 username: this.state.username
             }),
@@ -77,14 +77,14 @@ class Page extends React.Component {
                     <ModalHeader>Enter a Username</ModalHeader>
 
                     <ModalBody>
-                        <FormGroup onSubmit={this.handleUserNameSubmit}>
-                            <Input type={"text"} value={this.state.username} onChange={this.handleUserNameChange}/>
+                        <FormGroup onSubmit={(event) => this.handleUserNameSubmit(event)}>
+                            <Input type={"text"} value={this.state.username} onChange={(event) => this.handleUserNameChange(event)}/>
                             <Input type={"Submit"} onClick={this.handleUserNameSubmit} />
                         </FormGroup>
                     </ModalBody>
                 </Modal>
 
-                {this.state.cards}
+                <CardDisplay cards={this.state.cards}>test</CardDisplay>
 
             </div>
         )
