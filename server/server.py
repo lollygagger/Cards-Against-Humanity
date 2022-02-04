@@ -14,6 +14,7 @@ api.add_resource(WhiteCard, '/whitecard')
 api.add_resource(BlackCard, '/blackcard')
 api.add_resource(Login, '/login')
 api.add_resource(Players, '/players')
+api.add_resource(StarterCards, '/startercards')
 
 if __name__ == '__main__':
     print("Loading db")

@@ -18,6 +18,14 @@ class BlackCard(Resource):
 
         exec_commit("INSERT INTO cards(content, is_black_car) VALUES (%s, true)", [args['content']])
 
+class StarterCards(Resource):
+    def get(self):
+        cards = []
+        result = exec_get_all("SELECT content FROM cards WHERE is_black_card = false")
+        for i in range(7):
+            randIndex = random.randint(0, len(result) - 1)
+            cards.append(result[randIndex][0])
+        return cards
 
 class WhiteCard(Resource):
     def get(self):
