@@ -10,7 +10,7 @@ CREATE TABLE cards (
 CREATE TABLE players (
     id SERIAL PRIMARY KEY NOT NULL,
     username varchar(25) NOT NULL,
-    play_card INT REFERENCES cards(id)
+    play_card varchar(360)
 );
 
 INSERT INTO cards(content, is_black_card)

@@ -46,6 +46,14 @@ class Players(Resource):
     def get(self):
         exec_get_all("SELECT username, play_card FROM players")
 
+    def put(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('username')
+        parser.add_argument('playcard')
+        args = parser.parse_args()
+
+        exec_commit("UPDATE players SET play_card=%s WHERE username=%s", [args['playcard'], args['username']])
+
 class Login(Resource):
     def post(self):
         parser = reqparse.RequestParser()

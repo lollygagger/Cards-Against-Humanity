@@ -22,14 +22,6 @@ import PlayerDisplay from "./PlayerDisplay";
 
 const STARTING_CARD_AMOUNT = 7;
 
-// async function drawstartercards(){
-//     let startercards = fetch('/startercards', {method: 'GET'})
-//         .then((response) => response.json())
-//         .then(data => {console.log(error)})
-//         .catch((error) => console.log(error));
-//     return startercards
-// }
-
 function usernamePostCall(username){
     fetch('/login', {method: 'POST', body: JSON.stringify({
                 username: username
@@ -46,33 +38,17 @@ function Page(props) {
     const[showModal, setModal] = useState(true);
     const[blackCard, setBlackCard] = useState("");
     const[cards, setCards] = useState([]);
-    const[isLoadingData, setIsLoadingData] = useState(false)
 
     useEffect(() => {
 
-        setIsLoadingData(true)
         fetch('/startercards', {method: 'GET'})
             .then((response) => response.json())
             .then((json) => {
-                setIsLoadingData(false)
                 setCards(json)
             })
             .catch((error) => console.log(error))
 
     }, [])
-
-    // const drawWhiteCard = () => {
-    //     setIsLoadingData(true)
-    //     fetch('/whitecard', {method: 'GET'})
-    //     .then((response) => response.json())
-    //     .then((json) => {
-    //         if(json) {
-    //             setIsLoadingData(false)
-    //             setCards(json)
-    //         }
-    //     })
-    //     .catch((error) => console.log(error));
-    // }
 
 
     return(
@@ -88,9 +64,9 @@ function Page(props) {
                 </ModalBody>
             </Modal>
 
-            <Col><PlayerDisplay/></Col>
+            <Col><PlayerDisplay username={username}/></Col>
             <Col><GameDisplay/></Col>
-            <Col><CardDisplay cards={cards}/></Col>
+            <Col><CardDisplay cards={cards} username={username}/></Col>
 
         </div>
     )
